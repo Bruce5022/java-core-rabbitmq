@@ -24,8 +24,10 @@ public class Send {
 
 		// 4.发布消息
 		String message = "Hello World!111";
-		// 这里需要注意:第一个参数是exchange,如果这个为"",会走默认的Default路由器,这个路由器会根据routingKey把消息投递到
-		// 队列名为routingKey值的地方,如果有这样的队列,就会路由过去,如果没有这样的队列,就彻底发送失败了
+
+
+		// 这里需要注意:第一个参数是exchange,如果这个为"",会走默认的Default路由器,这个默认路由会绑定所有的队列,这个路由器会根据routingKey把消息投递到
+		// 队列名为routingKey值的地方,如果有这样的队列,就会路由过去,如果没有这样的队列,就彻底发送失败了,这个消息就会被删除掉
 		channel.basicPublish("", QUEUE_NAME, null, message.getBytes("UTF-8"));
 		System.out.println(" [x] Sent '" + message + "'");
 
