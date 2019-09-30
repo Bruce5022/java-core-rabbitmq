@@ -39,12 +39,12 @@ public class Send {
 		channel.addConfirmListener(new ConfirmListener() {
 			@Override
 			public void handleAck(long deliveryTag, boolean multiple) throws IOException {
-				System.out.println("Ack成功："+deliveryTag);
+				System.out.println("Confirm成功："+deliveryTag);
 			}
 
 			@Override
 			public void handleNack(long deliveryTag, boolean multiple) throws IOException {
-				System.out.println("Ack失败："+deliveryTag);
+				System.out.println("Confirm失败："+deliveryTag);
 			}
 		});
 
